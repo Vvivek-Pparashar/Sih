@@ -6,23 +6,44 @@ const App = () => {
     <>
       <div className="l-m">
         <div className="l-m-f">
-          <nav>Vivek isgr8</nav>
+          <nav>
+            <h1><span>Uni</span>tech</h1>
+            <ul>
+              <li>Home</li>
+              <li>About</li>
+              <li>contact</li>
+              <li>Extra</li>
+            </ul>
+            <button>Sign in</button>
+          </nav>
 
           <div className="l-m-f-c">
-            <div>
+            <div className="l-m-f-c-l">
               <h1>
                 Perfect place for <br />
                 your unique <br />
                 idea✌
               </h1>
               <p>
-                Businesses generally promote their brand, products, and services
-                by identifying audience
+                Businesses generally promote their brand, products, <br />
+                and services by identifying audience
               </p>
 
-              <img src={require("./comment.png")} alt="heroImg" className="comment-img" />
+              <button className="l-m-f-c-l-buton">Get started</button>
+
+              <img
+                src={require("./comment.png")}
+                alt="heroImg"
+                className="comment-img"
+              />
             </div>
-            <img src={require("./heroImg.png")} alt="heroImg" className="hero-img" />
+            <div className="l-m-f-c-r">
+              <img
+                src={require("./heroImg.png")}
+                alt="heroImg"
+                className="hero-img"
+              />
+            </div>
           </div>
         </div>
         <div className="l-m-s">sdkfjslkdfj</div>

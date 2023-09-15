@@ -17,4 +17,18 @@ code {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+li{
+  list-style: none;
+  cursor: pointer;
+}
+
+button{
+  cursor: pointer;
+}
+
+span{
+  color: #00E5CC;
 }
