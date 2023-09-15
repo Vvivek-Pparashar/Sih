@@ -1,6 +1,8 @@
 import React from "react";
 import "./App.css";
-import Footer from "./components/footer/Footer";
+import Footer from "./components/footer/Footer.jsx";
+import NewsLetter from "./components/newsletter/NewsLetter";
+import Global from "./components/global/Global";
 
 const App = () => {
   return (
@@ -47,6 +49,8 @@ const App = () => {
             </div>
           </div>
         </div>
+        <Global/>
+        <NewsLetter/>
         <Footer/>
       </div>
     </>
