@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import Footer from "./components/footer/Footer";
 
 const App = () => {
   return (
@@ -32,21 +33,21 @@ const App = () => {
               <button className="l-m-f-c-l-buton">Get started</button>
 
               <img
-                src={require("./comment.png")}
-                alt="heroImg"
+                src={("../assests/comment.png")}
+                alt="comment"
                 className="comment-img"
               />
             </div>
             <div className="l-m-f-c-r">
               <img
-                src={require("./heroImg.png")}
+                src={("../assests/heroImg.png")}
                 alt="heroImg"
                 className="hero-img"
               />
             </div>
           </div>
         </div>
-        <div className="l-m-s">sdkfjslkdfj</div>
+        <Footer/>
       </div>
     </>
   );
