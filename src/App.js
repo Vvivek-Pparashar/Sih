@@ -3,6 +3,8 @@ import "./App.css";
 import Footer from "./components/footer/Footer.jsx";
 import NewsLetter from "./components/newsletter/NewsLetter";
 import Global from "./components/global/Global";
+import AboutUs from "./components/aboutUs/AboutUs";
+import PopularProducts from "./components/popularProducts/PopularProducts";
 
 const App = () => {
   return (
@@ -10,7 +12,9 @@ const App = () => {
       <div className="l-m">
         <div className="l-m-f">
           <nav>
-            <h1><span>Uni</span>tech</h1>
+            <h1>
+              <span>Uni</span>tech
+            </h1>
             <ul>
               <li>Home</li>
               <li>About</li>
@@ -28,30 +32,32 @@ const App = () => {
                 idea✌
               </h1>
               <p>
-                Businesses generally promote their brand, products, <br />
-                and services by identifying audience
+                unique ideas starts with the recognition of truly <br/>innovative and
+                one-of-a-kind concepts.
               </p>
 
               <button className="l-m-f-c-l-buton">Get started</button>
 
               <img
-                src={("../assests/comment.png")}
+                src={"../assests/comment.png"}
                 alt="comment"
                 className="comment-img"
               />
             </div>
             <div className="l-m-f-c-r">
               <img
-                src={("../assests/heroImg.png")}
+                src={"../assests/heroImg.png"}
                 alt="heroImg"
                 className="hero-img"
               />
             </div>
           </div>
         </div>
-        <Global/>
-        <NewsLetter/>
-        <Footer/>
+        <AboutUs/>
+        <PopularProducts/>
+        <Global />
+        <NewsLetter />
+        <Footer />
       </div>
     </>
   );

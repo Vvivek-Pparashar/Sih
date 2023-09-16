@@ -1,0 +1,41 @@
+.m-l-pp {
+  position: relative;
+  width: 100%;
+  background-color: #ecf9ff;
+  height: 100%;
+  min-height: 100vh;
+
+  padding-top: 50px;
+  padding-left: 7.5%;
+}
+
+.mySwiper-products {
+  /* width: 85%; */
+  /* position: fixed; */
+  /* position: inherit; */
+}
+
+.swiperSlide-products {
+  background-color: white;
+  min-height: 60vh;
+  height: 100%;
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
+  border-radius: 20px;
+  flex-direction: column;
+        gap: 7px;
+  padding: 10px;
+}
+
+.swiperSlide-products p{
+        font-size: 15px;
+        color: #9090A7;
+}
+
+.swiperSlide-products > img{
+        height: 200px;
+        width: 100%;
+        border-radius: 10px;
+}
+
