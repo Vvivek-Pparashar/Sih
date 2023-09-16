@@ -23,6 +23,12 @@ code {
 li{
   list-style: none;
   cursor: pointer;
+  color: #9090a7;
+  font-weight: 500;
+}
+
+p{
+  color: #9090a7;
 }
 
 button{

@@ -5,6 +5,7 @@ import NewsLetter from "./components/newsletter/NewsLetter";
 import Global from "./components/global/Global";
 import AboutUs from "./components/aboutUs/AboutUs";
 import PopularProducts from "./components/popularProducts/PopularProducts";
+import Work from "./components/work/Work";
 
 const App = () => {
   return (
@@ -53,6 +54,7 @@ const App = () => {
             </div>
           </div>
         </div>
+        <Work/>
         <AboutUs/>
         <PopularProducts/>
         <Global />
