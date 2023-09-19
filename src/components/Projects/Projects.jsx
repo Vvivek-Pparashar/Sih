@@ -27,7 +27,7 @@ const Projects = () => {
           <div className="p-nav-left-li">
             <AccountTreeOutlinedIcon />
             <Link to={"/Projects"} className="Link">
-              Projects
+              <p style={{color:"black", fontWeight:"600", textDecoration:"underline"}}>Projects</p>
             </Link>
           </div>
           <div className="p-nav-left-li">
@@ -97,7 +97,6 @@ const Projects = () => {
                     />
                     <Avatar
                       style={{
-                        // backgroundColor: "#f56a00",
                         backgroundColor: "rgb(94 132 142)",
                         color: "black",
                       }}
