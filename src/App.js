@@ -6,6 +6,7 @@ import Global from "./components/global/Global";
 import AboutUs from "./components/aboutUs/AboutUs";
 import PopularProducts from "./components/popularProducts/PopularProducts";
 import Work from "./components/work/Work";
+import { Link } from "react-router-dom";
 
 const App = () => {
   return (
@@ -20,7 +21,9 @@ const App = () => {
               <li>Home</li>
               <li>About</li>
               <li>contact</li>
-              <li>Extra</li>
+              <Link to={"/projects"}>
+                <li>Projects</li>
+              </Link>
             </ul>
             <button>Sign in</button>
           </nav>
@@ -33,8 +36,8 @@ const App = () => {
                 idea✌
               </h1>
               <p>
-                unique ideas starts with the recognition of truly <br/>innovative and
-                one-of-a-kind concepts.
+                unique ideas starts with the recognition of truly <br />
+                innovative and one-of-a-kind concepts.
               </p>
 
               <button className="l-m-f-c-l-buton">Get started</button>
@@ -54,9 +57,9 @@ const App = () => {
             </div>
           </div>
         </div>
-        <Work/>
-        <AboutUs/>
-        <PopularProducts/>
+        <Work />
+        <AboutUs />
+        <PopularProducts />
         <Global />
         <NewsLetter />
         <Footer />

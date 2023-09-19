@@ -38,3 +38,8 @@ button{
 span{
   color: #00E5CC;
 }
+
+.Link{
+  text-decoration: none;
+  color: black;
+}
