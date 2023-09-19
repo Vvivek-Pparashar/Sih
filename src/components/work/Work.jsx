@@ -13,7 +13,7 @@ const Work = () => {
       <div className="m-l-w-c">
         <div className="m-l-w-c-b">
           <img src="../../../assests/work1.png" alt="work" />
-          <h2>Product Upload</h2>
+          <h2>Project Upload:</h2>
           <p>
             Enable users to upload the project they want to check for
             plagiarism.

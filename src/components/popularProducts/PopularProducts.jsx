@@ -21,7 +21,7 @@ const PopularProducts = () => {
   return (
     <div className="m-l-pp">
       <h1 style={{ marginBottom: "30px", fontSize: "40px" }}>
-        Popular Products
+        Popular Projects
       </h1>
       <Swiper
         spaceBetween={30}

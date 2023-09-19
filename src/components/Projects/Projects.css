@@ -1,5 +1,6 @@
 .m-p {
   display: flex;
+  background-color: #ecf9ff;
 }
 
 .p-nav-left {
@@ -7,6 +8,7 @@
   height: 100%;
   min-height: 100vh;
   border-right: 1px solid #dbdbdb;
+  border-right: 1px solid rgb(177, 177, 177);
   padding: 10px 30px;
   display: flex;
   flex-direction: column;
@@ -30,12 +32,20 @@
 
 .p-right {
   width: 80%;
-  height: 1000vh;
+  height: 100%;
+  min-height: 100vh;
+  z-index: 10;
+  padding-bottom: 50px;
 }
 
 .p-nav {
+  /* background-color: white; */
+  background-color: #ecf9ff;
   height: 60px;
   border-bottom: 1px solid #dbdbdb;
+  /* background-color: #060640; */
+  border-bottom: 1px solid rgb(177, 177, 177);
+  /* border-bottom: 1px solid  #00E5CC; */
   position: sticky;
   top: 0%;
   left: 30%;
@@ -43,4 +53,43 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
+  z-index: 10000;
+}
+
+.p-right-cnt {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 30px;
+}
+
+.p-right-cnt-box {
+  width: 30%;
+  min-height: 300px;
+  height: 100%;
+  border-radius: 10px;
+  /* border: 1px solid #dbdbdb; */
+  border: 1px solid rgb(177, 177, 177);
+  cursor: pointer;
+}
+
+.p-right-cnt-box:hover {
+  box-shadow: rgba(149, 157, 165, 0.3) 0px 8px 24px;
+}
+
+.p-right-cnt-box-c {
+  padding: 10px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.p-right-cnt-box-c > h3 {
+  font-size: 15px;
+}
+
+.p-right-cnt-box-c > P {
+  font-size: 12px;
+  color: rgb(106, 115, 125);
 }
