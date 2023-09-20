@@ -21,7 +21,7 @@ const App = () => {
               <li>Home</li>
               <li>About</li>
               <li>contact</li>
-              <Link to={"/projects"}>
+              <Link to={"/projects"} className="Link">
                 <li>Projects</li>
               </Link>
             </ul>
@@ -40,7 +40,9 @@ const App = () => {
                 innovative and one-of-a-kind concepts.
               </p>
 
-              <button className="l-m-f-c-l-buton">Get started</button>
+              <Link to={"/AddProject"}>
+                <button className="l-m-f-c-l-buton">Get started</button>
+              </Link>
 
               <img
                 src={"../assests/comment.png"}
