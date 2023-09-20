@@ -4,6 +4,8 @@ import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import SchoolOutlinedIcon from "@mui/icons-material/SchoolOutlined";
 import AccountTreeOutlinedIcon from "@mui/icons-material/AccountTreeOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+import SearchIcon from '@mui/icons-material/Search';
+import AddIcon from '@mui/icons-material/Add';
 import { Avatar} from "antd";
 import { Link } from "react-router-dom";
 import data from "./data";
@@ -56,6 +58,13 @@ const Projects = () => {
               Colleges
             </Link>
           </div>
+
+          <div className="p-nav-left-li">
+            <AddIcon />
+            <Link to={"/AddProject"} className="Link">
+              Add
+            </Link>
+          </div>
         </div>
       </div>
 
@@ -64,6 +73,32 @@ const Projects = () => {
           <p style={{ fontWeight: "600", fontSize: "17px", color: "black" }}>
             Project SpotLight
           </p>
+
+          <div style={{ display: "flex", gap: "20px", position:"relative" }}>
+            <input
+              type="text"
+              placeholder="Search Project"
+              style={{
+                padding: "5px 10px 5px 30px",
+                border: "1px solid #B1B1B1",
+                borderRadius: "20px",
+              }}
+            ></input>
+            <SearchIcon style={{position:"absolute", top:"3px", left:"3px"}}/>
+
+            <button
+              style={{
+                backgroundColor: "#1565c0",
+                padding: "5px 20px",
+                border: "none",
+                borderRadius: "20px",
+                cursor: "pointer",
+                color: "white",
+              }}
+            >
+              Sign In
+            </button>
+          </div>
         </nav>
 
         <div className="p-right-cnt">
@@ -111,7 +146,7 @@ const Projects = () => {
                         }}
                       >
                         <p style={{ color: "white" }}>
-                          +{Math.ceil(Math.random() * 10)}
+                          +{Math.ceil(Math.random() * 3)}
                         </p>
                       </Avatar>
                     </Avatar.Group>

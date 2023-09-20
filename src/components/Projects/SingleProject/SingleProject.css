@@ -17,6 +17,10 @@
   border-radius: 10px;
 }
 
+.p-right-cnt-s-l > input{
+        border: 1px solid rgb(177, 177, 177);
+}
+
 .p-right-cnt-s-r {
   width: 24%;
   min-height: 100vh;
