@@ -15,17 +15,15 @@ import axios from "axios";
 
 const SingleProject = () => {
   const { id } = useParams();
-  const [data, setData] = useState([]);
+  const [data, setData] = useState({});
 
-  const singleData = data.filter((e) => e._id === id);
-
-  // console.log(singleData[0].title)
+  // console.log(data);
 
   useEffect(() => {
     axios
-      .get("https://cgc-seller-server.vercel.app/api/products")
+      .get(`https://cgc-seller-server.vercel.app/api/products/${id}`)
       .then((response) => {
-        setData(response.data);
+        setData(response.data.product);
       })
       .catch((err) => {
         console.log(err);
@@ -124,15 +122,15 @@ const SingleProject = () => {
         <div className="p-right-cnt-s">
           <div className="p-right-cnt-s-l">
             <img
-              src={singleData[0].img}
+              src={data.img}
               alt="project img"
               style={{ marginBottom: "20px" }}
             />
-            <h1>{singleData[0].title}</h1>
-            <p style={{ marginBottom: "50px" }}>{singleData[0].s_d}</p>
+            <h1>{data.title}</h1>
+            <p style={{ marginBottom: "50px" }}>{data.s_d}</p>
 
             <h3 style={{ marginBottom: "10px" }}>Description :-</h3>
-            <p>{singleData[0].l_d}</p>
+            <p>{data.l_d}</p>
 
             <input
               type="text"
@@ -162,7 +160,7 @@ const SingleProject = () => {
             </div>
             <div>
               <h3>Tech Stack :</h3>
-              <p>{singleData.tech_stack}</p>
+              <p>{data.tech_stack}</p>
             </div>
             <div>
               <h3>Git Link :</h3>

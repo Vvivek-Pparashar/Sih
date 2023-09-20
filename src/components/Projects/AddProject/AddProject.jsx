@@ -44,6 +44,7 @@ const AddProject = () => {
   });
 
   const onFinish = () => {
+    console.log("hello")
     axios
       .post("https://unitech-navy.vercel.app/api/products", {
         ...data,
@@ -284,7 +285,7 @@ const AddProject = () => {
                 </Form.Item>
                 <Button
                   type="primary"
-                  onClick={onFinish}
+                  // onClick={onFinish}
                   style={{ marginLeft: "200px", color: "white" }}
                   htmlType="submit"
                 >
