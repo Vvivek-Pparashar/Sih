@@ -12,10 +12,12 @@ import AddIcon from "@mui/icons-material/Add";
 import { Link, useParams } from "react-router-dom";
 import { Breadcrumb, Layout } from "antd";
 import { InputNumber, Form, Select, DatePicker, Button } from "antd";
+import tdata from "../data";
 // Installed by "react-uploader".
 import { Uploader } from "uploader";
 import { UploadButton } from "react-uploader";
 import { Input } from "antd";
+import axios from "axios";
 
 // Initialize once (at the start of your app).
 const uploader = Uploader({
@@ -34,9 +36,6 @@ const AddProject = () => {
   const { TextArea } = Input;
 
   const [data, setData] = useState({
-    author: "Vivek Parashar",
-    clg: "Chandigarh Group of Colleges, landran",
-    Roll_No: "2121753",
     title: "",
     s_d: "",
     l_d: "",
@@ -46,6 +45,17 @@ const AddProject = () => {
 
   const onFinish = () => {
     console.log(data);
+    // add here
+    axios
+      .post("https://unitech-navy.vercel.app/api/products", { ...data })
+      .then((res) => {
+        console.log(res);
+        // setModel(2);
+      })
+      .catch((err) => {
+        console.log(err);
+        // setModel(3);
+      });
   };
 
   // console.log(data);

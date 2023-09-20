@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ChatOutlinedIcon from "@mui/icons-material/ChatOutlined";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import SchoolOutlinedIcon from "@mui/icons-material/SchoolOutlined";
@@ -8,11 +8,24 @@ import SearchIcon from '@mui/icons-material/Search';
 import AddIcon from '@mui/icons-material/Add';
 import { Avatar} from "antd";
 import { Link } from "react-router-dom";
-import data from "./data";
 
 import "./Projects.css";
+import axios from "axios";
 // import { Avatar, AvatarGroup } from "@mui/material";
 const Projects = () => {
+
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("https://cgc-seller-server.vercel.app/api/products")
+      .then((response) => {
+        setData(response.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   return (
     <div className="m-p">
       <div className="p-nav-left">
