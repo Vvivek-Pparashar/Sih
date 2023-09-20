@@ -124,6 +124,7 @@ const Projects = () => {
                     alt="project name"
                     style={{
                       width: "100%",
+                      height:"170px",
                       borderTopLeftRadius: "10px",
                       borderTopRightRadius: "10px",
                     }}
