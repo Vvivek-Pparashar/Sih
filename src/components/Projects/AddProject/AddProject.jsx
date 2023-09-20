@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 // import React from "react";
 import ChatOutlinedIcon from "@mui/icons-material/ChatOutlined";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
@@ -44,10 +44,10 @@ const AddProject = () => {
   });
 
   const onFinish = () => {
-    console.log(data);
-    // add here
     axios
-      .post("https://unitech-navy.vercel.app/api/products", { ...data })
+      .post("https://unitech-navy.vercel.app/api/products", {
+        ...data,
+      })
       .then((res) => {
         console.log(res);
         // setModel(2);
@@ -58,7 +58,6 @@ const AddProject = () => {
       });
   };
 
-  // console.log(data);
   return (
     <div className="m-p">
       <div className="p-nav-left">

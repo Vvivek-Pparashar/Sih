@@ -118,7 +118,7 @@ const Projects = () => {
           {data.map((e) => {
             return (
               // <Link to={`/projects/${e.key}`}>
-                <Link className="p-right-cnt-box Link" to={`/projects/${e.key}`}>
+                <Link className="p-right-cnt-box Link" to={`/projects/${e._id}`}>
                   <img
                     src={`${e.img}`}
                     alt="project name"

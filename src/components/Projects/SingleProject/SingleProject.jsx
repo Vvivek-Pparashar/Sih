@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ChatOutlinedIcon from "@mui/icons-material/ChatOutlined";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import SchoolOutlinedIcon from "@mui/icons-material/SchoolOutlined";
@@ -7,17 +7,30 @@ import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import { Avatar } from "antd";
 import SearchIcon from "@mui/icons-material/Search";
 import ArrowCircleLeftOutlinedIcon from "@mui/icons-material/ArrowCircleLeftOutlined";
-import AddIcon from '@mui/icons-material/Add';
+import AddIcon from "@mui/icons-material/Add";
 import { Link, useParams } from "react-router-dom";
-import data from "../data";
+// import data from "../data";
 import "./SingleProject.css";
+import axios from "axios";
 
 const SingleProject = () => {
   const { id } = useParams();
-  const singleData = data.filter((e) => e.key == id);
+  const [data, setData] = useState([]);
 
-  console.log(singleData);
-  console.log(id);
+  const singleData = data.filter((e) => e._id === id);
+
+  // console.log(singleData[0].title)
+
+  useEffect(() => {
+    axios
+      .get("https://cgc-seller-server.vercel.app/api/products")
+      .then((response) => {
+        setData(response.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   return (
     <div className="m-p">
       <div className="p-nav-left">
@@ -79,7 +92,7 @@ const SingleProject = () => {
             </p>
           </div>
 
-          <div style={{ display: "flex", gap: "20px", position:"relative" }}>
+          <div style={{ display: "flex", gap: "20px", position: "relative" }}>
             <input
               type="text"
               placeholder="Search Project"
@@ -89,7 +102,9 @@ const SingleProject = () => {
                 borderRadius: "20px",
               }}
             ></input>
-            <SearchIcon style={{position:"absolute", top:"3px", left:"3px"}}/>
+            <SearchIcon
+              style={{ position: "absolute", top: "3px", left: "3px" }}
+            />
 
             <button
               style={{
@@ -134,20 +149,20 @@ const SingleProject = () => {
           <div className="p-right-cnt-s-r">
             <div>
               <h3>Author : </h3>
-              <p>{singleData[0].author}</p>
+              <p>Vivek Parashar</p>
             </div>
 
             <div>
               <h3>Roll No :</h3>
-              <p>{singleData[0].Roll_No}</p>
+              <p>2121753</p>
             </div>
             <div>
               <h3>College : </h3>
-              <p>{singleData[0].clg}</p>
+              <p>Chandigarh Group of Colleges, Landran</p>
             </div>
             <div>
               <h3>Tech Stack :</h3>
-              <p>{singleData[0].tech_stack}</p>
+              <p>{singleData.tech_stack}</p>
             </div>
             <div>
               <h3>Git Link :</h3>
