@@ -41,6 +41,8 @@ const AddProject = () => {
   const { Content } = Layout;
   const { TextArea } = Input;
 
+  const [uni, setUni] = useState(0);
+
   const [data, setData] = useState({
     title: "",
     s_d: "",
@@ -57,50 +59,75 @@ const AddProject = () => {
     setLoading(true);
 
     axios
-      .post("https://namit2111-sentence-similarity.hf.space/run/predict", {
-        "data": [
-          data.s_d,
-          "Relive the nostalgia of arcade gaming with our Python Snake game",
-          "Challenge your word-solving skills with our Python Hangman game.",
-          "Satisfy your cravings with our Zomato page clone, your gateway to delicious food",
-        ],
-      })
+      .post(
+        "https://namit2111-sentence-similarity.hf.space/run/predict",
+        {
+          data: [
+            data.s_d,
+            "Relive the nostalgia of arcade gaming with our Python Snake game \nChallenge your word-solving skills with our Python Hangman game.\nSatisfy your cravings with our Zomato page clone, your gateway to delicious food\nElevate your professional networking with our LinkedIn page clone\nShop smartly with our Flipkart page clone, your go-to destination for online shopping\nExperience the ultimate online shopping with our Amazon page clone",
+          ],
+        },
+        { "Content-Type": "application/json" }
+      )
       .then((res) => {
-        console.log(res["data"]);
-        axios
-          .post("https://unitech-navy.vercel.app/api/products", {
-            ...data,
-          })
-          .then((res) => {
-            console.log(res);
-            setLoading(false);
-            setModel(2);
-            // setModel(2);
-          })
-          .catch((err) => {
-            console.log(err);
-            // setModel(3);
-            setModel(3);
-          });
+        console.log(res.data["data"]);
+        console.log("vivekisgr8");
+
+        if (res.data["data"][0].confidences[0].confidence * 100 > 40) {
+          console.log("not unique");
+          console.log(res.data["data"][0].confidences[0].confidence * 100);
+
+          if (
+            Math.floor(res.data["data"][0].confidences[0].confidence * 100) > 90
+          ) {
+            setUni(90);
+          } else {
+            setUni(
+              Math.floor(res.data["data"][0].confidences[0].confidence * 100)
+            );
+          }
+          setModel(3);
+        } else {
+          console.log("unique");
+          console.log(
+            Math.floor(res.data["data"][0].confidences[0].confidence * 100)
+          );
+
+          axios
+            .post("https://unitech-navy.vercel.app/api/products", {
+              ...data,
+            })
+            .then((res) => {
+              console.log(res);
+              // setLoading(false);
+              setModel(2);
+              // setModel(2);
+            })
+            .catch((err) => {
+              console.log(err);
+              // setModel(3);
+              setModel(3);
+            });
+        }
       })
       .catch((err) => {
-        console.log(err)
-        axios
-          .post("https://unitech-navy.vercel.app/api/products", {
-            ...data,
-          })
-          .then((res) => {
-            console.log(res);
-            setLoading(false);
-            setModel(2);
-            // setModel(2);
-          })
-          .catch((err) => {
-            console.log(err);
-            // setModel(3);
-            setModel(3);
-          });
-        setModel(2);
+        console.log(err);
+        // axios
+        //   .post("https://unitech-navy.vercel.app/api/products", {
+        //     ...data,
+        //   })
+        //   .then((res) => {
+        //     console.log(res);
+        //     setLoading(false);
+        //     setModel(2);
+        //     // setModel(2);
+        //   })
+        //   .catch((err) => {
+        //     console.log(err);
+        //     // setModel(3);
+        //     setModel(3);
+        //   });
+        setModel(3);
       });
   };
 
@@ -130,6 +157,7 @@ const AddProject = () => {
               <CancelSharpIcon style={{ color: "red" }} />
               <h1>Error</h1>
               <p>Your Idea Is not unique</p>
+              <p>Your Project is {uni}% same, plz add something new</p>
               <Link to={"/projects"}>
                 <button
                   className="Model-Success-button"
