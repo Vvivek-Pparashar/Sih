@@ -18,6 +18,12 @@ import { Uploader } from "uploader";
 import { UploadButton } from "react-uploader";
 import { Input } from "antd";
 import axios from "axios";
+import { Spin } from "antd";
+import CircularProgress from "@mui/material/CircularProgress";
+import CheckCircleSharpIcon from "@mui/icons-material/CheckCircleSharp";
+import CancelSharpIcon from "@mui/icons-material/CancelSharp";
+
+import "./AddProject.css";
 
 // Initialize once (at the start of your app).
 const uploader = Uploader({
@@ -43,24 +49,103 @@ const AddProject = () => {
     tech_stack: "",
   });
 
+  const [loading, setLoading] = useState(false);
+  const [model, setModel] = useState(1);
+
   const onFinish = () => {
-    console.log("hello")
+    console.log("hello");
+    setLoading(true);
+
     axios
-      .post("https://unitech-navy.vercel.app/api/products", {
-        ...data,
+      .post("https://namit2111-sentence-similarity.hf.space/run/predict", {
+        "data": [
+          data.s_d,
+          "Relive the nostalgia of arcade gaming with our Python Snake game",
+          "Challenge your word-solving skills with our Python Hangman game.",
+          "Satisfy your cravings with our Zomato page clone, your gateway to delicious food",
+        ],
       })
       .then((res) => {
-        console.log(res);
-        // setModel(2);
+        console.log(res["data"]);
+        axios
+          .post("https://unitech-navy.vercel.app/api/products", {
+            ...data,
+          })
+          .then((res) => {
+            console.log(res);
+            setLoading(false);
+            setModel(2);
+            // setModel(2);
+          })
+          .catch((err) => {
+            console.log(err);
+            // setModel(3);
+            setModel(3);
+          });
       })
       .catch((err) => {
-        console.log(err);
-        // setModel(3);
+        console.log(err)
+        axios
+          .post("https://unitech-navy.vercel.app/api/products", {
+            ...data,
+          })
+          .then((res) => {
+            console.log(res);
+            setLoading(false);
+            setModel(2);
+            // setModel(2);
+          })
+          .catch((err) => {
+            console.log(err);
+            // setModel(3);
+            setModel(3);
+          });
+        setModel(2);
       });
   };
 
   return (
     <div className="m-p">
+      {loading ? (
+        <div className="model-cnt">
+          {model === 1 ? (
+            <div className="Model-Loading">
+              <CircularProgress />
+              <div className="Mo-lo-c">
+                <h2 className="mo-lo-c-head">Loading....</h2>
+              </div>
+            </div>
+          ) : model === 2 ? (
+            <div className="Model-Success">
+              <CheckCircleSharpIcon style={{ color: "green" }} />
+              <h3>Success</h3>
+              <p>Your Project is unique</p>
+              {/* <p>{data[1].p}</p> */}
+              <Link to={"/projects"}>
+                <button className="Model-Success-button">Done</button>
+              </Link>
+            </div>
+          ) : model === 3 ? (
+            <div className="Model-error">
+              <CancelSharpIcon style={{ color: "red" }} />
+              <h1>Error</h1>
+              <p>Your Idea Is not unique</p>
+              <Link to={"/projects"}>
+                <button
+                  className="Model-Success-button"
+                  style={{ background: "red" }}
+                >
+                  Okay
+                </button>
+              </Link>
+            </div>
+          ) : (
+            <></>
+          )}
+        </div>
+      ) : (
+        <></>
+      )}
       <div className="p-nav-left">
         <h1>
           <span>Uni</span>tech

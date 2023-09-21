@@ -4,16 +4,15 @@ import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import SchoolOutlinedIcon from "@mui/icons-material/SchoolOutlined";
 import AccountTreeOutlinedIcon from "@mui/icons-material/AccountTreeOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
-import SearchIcon from '@mui/icons-material/Search';
-import AddIcon from '@mui/icons-material/Add';
-import { Avatar} from "antd";
+import SearchIcon from "@mui/icons-material/Search";
+import AddIcon from "@mui/icons-material/Add";
+import { Avatar } from "antd";
 import { Link } from "react-router-dom";
 
 import "./Projects.css";
 import axios from "axios";
 // import { Avatar, AvatarGroup } from "@mui/material";
 const Projects = () => {
-
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -87,7 +86,7 @@ const Projects = () => {
             Project SpotLight
           </p>
 
-          <div style={{ display: "flex", gap: "20px", position:"relative" }}>
+          <div style={{ display: "flex", gap: "20px", position: "relative" }}>
             <input
               type="text"
               placeholder="Search Project"
@@ -97,7 +96,9 @@ const Projects = () => {
                 borderRadius: "20px",
               }}
             ></input>
-            <SearchIcon style={{position:"absolute", top:"3px", left:"3px"}}/>
+            <SearchIcon
+              style={{ position: "absolute", top: "3px", left: "3px" }}
+            />
 
             <button
               style={{
@@ -118,54 +119,54 @@ const Projects = () => {
           {data.map((e) => {
             return (
               // <Link to={`/projects/${e.key}`}>
-                <Link className="p-right-cnt-box Link" to={`/projects/${e._id}`}>
-                  <img
-                    src={`${e.img}`}
-                    alt="project name"
-                    style={{
-                      width: "100%",
-                      height:"170px",
-                      borderTopLeftRadius: "10px",
-                      borderTopRightRadius: "10px",
-                    }}
-                  />
-                  <div className="p-right-cnt-box-c">
-                    <h3>{e.title}</h3>
-                    <p style={{ marginBottom: "20px", color: "black" }}>
-                      {e.s_d}
-                    </p>
+              <Link className="p-right-cnt-box Link" to={`/projects/${e._id}`}>
+                <img
+                  src={`${e.img}`}
+                  alt="project name"
+                  style={{
+                    width: "100%",
+                    height: "170px",
+                    borderTopLeftRadius: "10px",
+                    borderTopRightRadius: "10px",
+                  }}
+                />
+                <div className="p-right-cnt-box-c">
+                  <h3>{e.title}</h3>
+                  <p style={{ marginBottom: "20px", color: "black" }}>
+                    {e.s_d}
+                  </p>
 
-                    <Avatar.Group
-                      // maxCount={2}
-                      maxStyle={{
+                  <Avatar.Group
+                    // maxCount={2}
+                    maxStyle={{
+                      color: "black",
+                      backgroundColor: "#fde3cf",
+                      // paddingTop:"10px"
+                    }}
+                  >
+                    <Avatar
+                      src={`https://xsgames.co/randomusers/avatar.php?g=male&key=${Math.ceil(
+                        Math.random() * 100
+                      )}`}
+                    />
+                    <Avatar
+                      src={`https://xsgames.co/randomusers/avatar.php?g=female&key=${Math.ceil(
+                        Math.random() * 100
+                      )}`}
+                    />
+                    <Avatar
+                      style={{
+                        backgroundColor: "rgb(94 132 142)",
                         color: "black",
-                        backgroundColor: "#fde3cf",
-                        // paddingTop:"10px"
                       }}
                     >
-                      <Avatar
-                        src={`https://xsgames.co/randomusers/avatar.php?g=male&key=${Math.ceil(
-                          Math.random() * 100
-                        )}`}
-                      />
-                      <Avatar
-                        src={`https://xsgames.co/randomusers/avatar.php?g=female&key=${Math.ceil(
-                          Math.random() * 100
-                        )}`}
-                      />
-                      <Avatar
-                        style={{
-                          backgroundColor: "rgb(94 132 142)",
-                          color: "black",
-                        }}
-                      >
-                        <p style={{ color: "white" }}>
-                          +{Math.ceil(Math.random() * 3)}
-                        </p>
-                      </Avatar>
-                    </Avatar.Group>
-                  </div>
-                </Link>
+                      <p style={{ color: "white" }}>
+                        +{Math.ceil(Math.random() * 3)}
+                      </p>
+                    </Avatar>
+                  </Avatar.Group>
+                </div>
+              </Link>
               // </Link>
             );
           })}
