@@ -28,7 +28,6 @@ const AboutUs = () => {
           <img src="../../../assests/connect.png" alt="comment" />
           <div className="m-l-a-l-p-c">
             <h3>Connect: </h3>
-
             <p>
               Foster collaboration and networking opportunities for inventors,
               entrepreneurs, and visionaries.
