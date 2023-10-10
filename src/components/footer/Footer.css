@@ -1,0 +1,87 @@
+.m-ftr {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: #060640;
+  padding: 80px 100px 50px;
+  gap: 40px;
+}
+
+@media screen and (max-width: 480px) {
+  .m-ftr {
+    flex-direction: column;
+    padding: 50px 30px 50px;
+  }
+}
+
+.m-ftr-cn {
+  flex: 2.3;
+}
+
+.m-ftr-cn > h1 {
+  margin-bottom: 15px;
+  color: white;
+  font-weight: 600;
+  font-size: 40px;
+  margin-top: -10px;
+}
+
+.m-ftr-cn > p {
+  font-size: 14px;
+  line-height: 25px;
+  margin-right: 40px;
+}
+
+@media screen and (max-width: 480px) {
+  .m-ftr-cn > p {
+    margin-right: 0;
+  }
+}
+
+.m-ftr-lnk {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.m-ftr-lnk > h3 {
+  margin-top: 10px;
+  margin-bottom: 15px;
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.m-ftr-lnk p {
+  font-size: 14px;
+  line-height: 25px;
+}
+
+.m-ftr-lnk p:hover {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 480px) {
+  .m-ftr-lnk > h3 {
+    margin-bottom: 15px;
+  }
+}
+
+.m-ftr-right {
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 100px;
+}
+
+.m-ftr-right > p {
+  color: white;
+  font-size: 14px;
+}
+
+@media screen and (max-width: 480px) {
+  .m-ftr-right {
+    padding: 20px 20px;
+  }
+}
